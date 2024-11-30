@@ -36,7 +36,7 @@ export async function POST(request) {
     }
 
     const result = await pool.query(
-      "DELETE FROM admin_signup WHERE email = ?",
+      "DELETE FROM admin_login WHERE email = ?",
       [email]
     );
 
