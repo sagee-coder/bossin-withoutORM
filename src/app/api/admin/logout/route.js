@@ -46,6 +46,7 @@ export async function POST(request) {
         { status: 404 }
       );
     }
+    
 
     // Create a response to clear the cookie
     const res = new NextResponse(

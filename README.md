@@ -43,6 +43,4 @@ POST /api/admin/signup
 {
   email: "xyz@gamil.com,
 }
-```# bossin-withoutORM
-# bossin-withoutORM
-# bossin-withoutOrm
+```

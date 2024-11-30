@@ -76,11 +76,17 @@ export async function POST(request) {
     // Generate JWT token
     const token = jwt.sign({ email }, jwt_key, { expiresIn: "1d" });
 
-    // Set token in cookies
+    console.log(user.isAdmin);
+
+    const message =
+      user.isAdmin === 0 ? "Login successful" : "Admin Login successful";
+
     const response = new NextResponse(
-      JSON.stringify({ message: "Login successful", token }),
+      JSON.stringify({ message: message, token }),
       { status: 200 }
     );
+
+    // Set token in cookies
 
     response.cookies.set("token", token, {
       httpOnly: true,
@@ -91,10 +97,7 @@ export async function POST(request) {
     });
 
     // Record the login (insert into admin_login table)
-    await pool.query(
-      "INSERT INTO admin_login (email) VALUES (?)",
-      [email]
-    );
+    await pool.query("INSERT INTO admin_login (email) VALUES (?)", [email]);
 
     return response;
   } catch (error) {
