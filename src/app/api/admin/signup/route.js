@@ -50,7 +50,7 @@ export async function POST(request) {
       "SELECT * FROM admin_signup WHERE email = ?",
       [email]
     );
-    if (existingEmail.length > 0) {
+    if (-existingEmail.length > 0) {
       return new NextResponse(
         JSON.stringify({ message: "Email already exists." }),
         { status: 409 }
@@ -84,8 +84,7 @@ export async function POST(request) {
     });
 
     return res;
-  } 
-  catch (error) {
+  } catch (error) {
     console.error("Error creating user:", error.message);
     return new NextResponse(
       JSON.stringify({

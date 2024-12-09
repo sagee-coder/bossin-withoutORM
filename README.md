@@ -44,3 +44,4 @@ POST /api/admin/signup
   email: "xyz@gamil.com,
 }
 ```
+
