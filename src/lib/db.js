@@ -1,6 +1,5 @@
 // src/lib/db.js
 import mariadb from 'mariadb';
-import { configDotenv } from 'dotenv';
 
 const pool = mariadb.createPool({
   host: process.env.DB_HOST, // Change this if your MariaDB is on a different server

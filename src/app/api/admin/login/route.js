@@ -1,4 +1,4 @@
-import pool from "../../../../lib/db.js"; // Adjust path if needed
+import pool from "../../../../lib/db.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { NextResponse } from "next/server";
